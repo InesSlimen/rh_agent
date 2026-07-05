@@ -63,12 +63,4 @@ L'application s'ouvre automatiquement dans le navigateur (par défaut sur http:/
 4. Consulter le score de pertinence, les compétences détectées et la synthèse générée par l'IA.
 5. Valider ou rejeter la candidature, relire/modifier le brouillon d'email généré, puis l'envoyer.
 
-## Dépannage
 
-- **`ModuleNotFoundError: No module named 'PyPDF2'`** (ou tout autre module) : l'environnement
-  virtuel n'est pas activé, ou les dépendances n'ont pas été installées dedans. Vérifiez que votre
-  invite de commande affiche bien `(env)` avant de lancer `streamlit run app.py`, sinon relancez :
-  ```bash
-  source env/bin/activate
-  pip install -r requirements.txt
-  ```
