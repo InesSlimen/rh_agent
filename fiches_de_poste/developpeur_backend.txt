@@ -1,0 +1,15 @@
+Poste : Développeur Backend
+
+Nous recherchons un développeur backend expérimenté.
+
+Missions :
+- Concevoir et développer des API REST
+- Optimiser les performances des services backend
+- Assurer la qualité du code via des tests automatisés
+- Participer aux revues de code et à l'architecture technique
+
+Compétences requises :
+- Python ou Java, frameworks web (Django, FastAPI, Spring)
+- Bases de données relationnelles (PostgreSQL, MySQL)
+- Docker, CI/CD
+- Travail en équipe agile

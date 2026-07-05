@@ -1,0 +1,15 @@
+Poste : Data Scientist
+
+Nous recherchons un Data Scientist pour rejoindre notre équipe IA.
+
+Missions :
+- Développer des modèles de machine learning et de deep learning
+- Analyser de grands volumes de données pour en extraire des insights
+- Mettre en production des pipelines de données (ETL)
+- Collaborer avec les équipes produit pour définir les besoins analytiques
+
+Compétences requises :
+- Python, Pandas, NumPy, Scikit-learn
+- Machine Learning, Deep Learning
+- SQL et bases de données
+- Gestion de projet et esprit d'analyse
