@@ -17,10 +17,26 @@ puis génération d'un brouillon d'email de réponse.
    ```
 
 2. Créer et activer un environnement virtuel (nécessite Python 3.11+) :
+
+   **macOS / Linux :**
    ```bash
    python3 --version   # vérifier que la version est >= 3.11
    python3 -m venv env
    source env/bin/activate
+   ```
+
+   **Windows (PowerShell) :**
+   ```powershell
+   python --version   # vérifier que la version est >= 3.11
+   python -m venv env
+   .\env\Scripts\Activate.ps1
+   ```
+
+   **Windows (cmd) :**
+   ```cmd
+   python --version   :: vérifier que la version est >= 3.11
+   python -m venv env
+   env\Scripts\activate.bat
    ```
 
 3. Installer les dépendances :
@@ -31,9 +47,23 @@ puis génération d'un brouillon d'email de réponse.
 ## Configuration
 
 1. Copier le fichier d'exemple puis renseigner votre clé API Groq :
+
+   **macOS / Linux :**
    ```bash
    cp .streamlit/secrets.toml.example .streamlit/secrets.toml
    ```
+
+   **Windows (PowerShell) :**
+   ```powershell
+   Copy-Item .streamlit\secrets.toml.example .streamlit\secrets.toml
+   ```
+
+   **Windows (cmd) :**
+   ```cmd
+   copy .streamlit\secrets.toml.example .streamlit\secrets.toml
+   ```
+
+   Puis renseigner la clé dans `.streamlit/secrets.toml` :
    ```toml
    GROQ_API_KEY = "gsk_votre_cle_api_ici"
    ```
