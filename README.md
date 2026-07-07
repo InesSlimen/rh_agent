@@ -1,16 +1,34 @@
 # Agent RH :
 
-### Tri et Analyse de CV
-
-Application Streamlit qui automatise le tri de CV : extraction du PDF, recherche de la fiche de poste
-la plus pertinente (RAG local par embeddings), analyse et scoring par un LLM (Llama via l'API Groq),
-puis génération d'un brouillon d'email de réponse.
-
 ### Tool calling
 
 `tool_calling_demo.py` est un script de démonstration des outils (tool calling) pour cet agent RH.
 Il définit trois fonctions exposées à l'agent : `search_policy`, `create_ticket` et `send_email`, avec
 leur description, leurs paramètres JSON Schema, et un contrôle de sécurité simple.
+
+### Corporate Tools Server (MCP)
+
+Ce dépôt contient un serveur de micro-outils d'entreprise basé sur le protocole **MCP (Model Context Protocol)** utilisant le framework **FastMCP**. Il expose des outils permettant à un agent d'intelligence artificielle de consulter les politiques RH, de créer des tickets de support informatique et d'envoyer des e-mails externes de manière sécurisée.
+
+Le serveur intègre une politique de sécurité stricte (`TOOLS_SECURITY`) pour classifier les risques liés à l'exécution de chaque outil (notamment la validation humaine requise pour les actions critiques).
+
+## 📋 Fonctionnalités et Matrice de Sécurité
+
+Les outils sont configurés selon le niveau de risque suivant :
+
+| Outil | Description | Type | Risque | Confirmation Requise |
+| :--- | :--- | :--- | :--- | :--- |
+| `search_policy` | Consulter les procédures internes RH | `READ` | **LOW** | ❌ Non |
+| `create_ticket` | Créer un ticket support informatique | `WRITE` | **MEDIUM** | ❌ Non |
+| `send_email` | Envoyer un e-mail externe | `SEND` | **HIGH** |  Oui (Human-in-the-loop) |
+
+> ⚠️ **Sécurité :** Les métadonnées de sécurité sont injectées directement dans les descriptions des outils (`docstrings`) afin que l'agent IA ou le client MCP puisse intercepter et valider l'action avant son exécution.
+
+### Tri et Analyse de CV
+
+Application Streamlit qui automatise le tri de CV : extraction du PDF, recherche de la fiche de poste
+la plus pertinente (RAG local par embeddings), analyse et scoring par un LLM (Llama via l'API Groq),
+puis génération d'un brouillon d'email de réponse.
 
 ## Prérequis
 
@@ -81,7 +99,26 @@ leur description, leurs paramètres JSON Schema, et un contrôle de sécurité s
 
 ## Lancer les applications
 
-### 1. Application Tri et Analyse de CV
+
+### 1. Démo Tool Calling (Chat avec outils et validation humaine)
+
+```bash
+streamlit run tool_calling_demo.py
+```
+
+L'interface de chat s'ouvre dans le navigateur (par défaut sur http://localhost:8501).
+
+### 2. Corporate Tools Server (MCP)
+```bash
+python server.py
+```
+Dans un deuxième terminal :
+
+```bash
+python client.py
+```
+
+### 3. Application Tri et Analyse de CV
 
 ```bash
 streamlit run analyse_cv.py
@@ -92,16 +129,6 @@ L'application s'ouvre automatiquement dans le navigateur (par défaut sur http:/
 > **Premier lancement :** le modèle d'embedding (`paraphrase-multilingual-MiniLM-L12-v2`, ~470 Mo)
 > est téléchargé et mis en cache localement — ça peut prendre quelques minutes selon la connexion.
 > Les lancements suivants seront rapides.
-
-### 2. Démo Tool Calling (Chat avec outils et validation humaine)
-
-```bash
-streamlit run tool_calling_demo.py
-```
-
-L'interface de chat s'ouvre dans le navigateur (par défaut sur http://localhost:8501).
-
----
 
 ## Utilisation
 
