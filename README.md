@@ -4,6 +4,12 @@ Application Streamlit qui automatise le tri de CV : extraction du PDF, recherche
 la plus pertinente (RAG local par embeddings), analyse et scoring par un LLM (Llama via l'API Groq),
 puis génération d'un brouillon d'email de réponse.
 
+# Tool calling
+
+`tool_calling_demo.py` est un script de démonstration des outils (tool calling) pour cet agent RH.
+Il définit trois fonctions exposées à l'agent : `search_policy`, `create_ticket` et `send_email`, avec
+leur description, leurs paramètres JSON Schema, et un contrôle de sécurité simple.
+
 ## Prérequis
 
 - Python 3.11 ou supérieur
