@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 .streamlit/secrets.toml
 agent_logs.json
+.DS_Store
