@@ -84,7 +84,7 @@ leur description, leurs paramètres JSON Schema, et un contrôle de sécurité s
 ### 1. Application Tri et Analyse de CV
 
 ```bash
-streamlit run app.py
+streamlit run analyse_cv.py
 ```
 
 L'application s'ouvre automatiquement dans le navigateur (par défaut sur http://localhost:8501).
